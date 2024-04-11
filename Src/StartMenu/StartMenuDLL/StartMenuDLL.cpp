@@ -1170,6 +1170,8 @@ void EnableHotkeys( THotkeys enable )
 	bool bHook=(enable==HOTKEYS_SETTINGS || (enable==HOTKEYS_NORMAL && GetSettingInt(L"ShiftWin")!=0));
 	if (bHook)
 	{
+		// Call Window API to register the key SHIFT-WIN
+		// the message will be sent to g_Taskbar
 		RegisterHotKey(g_TaskBar,g_HotkeyShiftID,MOD_SHIFT|MOD_WIN,0);
 		g_bHotkeyShift=true;
 	}
